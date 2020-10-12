@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- style.css -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>My Budgetary</title>
+  </head>
+
+  <body>
+    
+
+
+<!-- title -->
+    <section class="title">
+        <div class="jumbotron jumbotron-fluid bg-dark">
+            <div class="container">
+              <h1 class="display-1 text-muted">My Budget</h1>
+              <p class="display-4 text-muted">Year of <i class="year-value">year</i></p>
+            </div>
+          </div>
+    </section>
+
+      <!-- year data  -->
+    <section id="year-data-container">
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4 shadow-sm ">
+                    <div class="card-header">
+                      <h2 class="my-0 font-weight-normal">Income</h2>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="total-income-value">####</h4>
+                    </div>
+                  </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                      <h2 class="my-0 font-weight-normal">Expense</h2>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="totalExpense-value" style="display: inline;">####</h4>
+                      <h4 class="year-persentage-value" style="display: inline;">##%</h4>
+                    </div>
+                  </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-12">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                      <h2 class="my-0 font-weight-normal">Budget</h2>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="total-budget-value">####</h4>
+                    </div>
+                  </div>
+            </div>
+
+        </div>
+    </section>
+
+      <!-- month selection -->
+    <section id="month-selection">
+
+        <div class="input-group">
+            <select class="custom-select month-selector" id="inputGroupSelect04" aria-label="Example select with button addon">
+                <option value="" selected>Month</option>
+                <option value="jan">January</option>
+                <option value="feb">Feburary</option>
+                <option value="mar">March</option>
+                <option value="apr">April</option>
+                <option value="may">May</option>
+                <option value="jun">June</option>
+                <option value="jul">July</option>
+                <option value="aug">August</option>
+                <option value="sept">September</option>
+                <option value="oct">October</option>
+                <option value="nov">November</option>
+                <option value="dec">December</option>
+            </select>
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" id='month-submit' type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Submit</button>
+            </div>
+          </div>
+
+      
+    </section>
+
+      <!-- month page -->
+    <section class="month-budget">
+
+        <button id="month-title-box"class="btn btn-primary col-12" type="button"><h1 style="display: inline;">Budget of </h1> <h1 class="selected-month" style="display: inline;">---</h1></button>
+
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+
+
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-12">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Type</label>
+                        </div>
+                        <select class="custom-select type-selector" id="inputGroupSelect01">
+                          <option value="inc" selected>+</option>
+                          <option value="exp">-</option>
+                        </select>
+                      </div>
+                </div>
+
+                <div class="col-lg-9 col-md-12">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control description-input" placeholder="Description" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="number" class="form-control value-input" placeholder="Amount" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary add-item-btn" type="button" id="button-addon2">Add</button>
+                          <button type="button" class="btn btn-outline-secondary done-btn" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Done</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header month-budget-title-container">
+                    <h2 class="my-0 font-weight-normal" style="display: inline;">Budget:</h2>
+                    <h2 class="month-budget-value"style="display: inline;" ></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div class="card mb-4 shadow-sm">
+                      <div class="card-header month-income-title-container">
+                        <h2 class="my-0 font-weight-normal" style="display: inline;">Income:</h2>
+                        <h2 class="month-income-value"style="display: inline;" ></h2>
+                    </div>
+
+
+                        <div class="card-body income__list">
+                        <!-- listings -->
+
+                          <!-- <div class="row item" id="inc-%id%">
+                            <div class="col-sm-6 col-12 item_description">
+                                %description%
+                            </div>
+                            <div class="col-sm-4 col-6 item_value">
+                                %value%
+                            </div>
+                            <div class="col-sm-1 item_delete_btn">
+                                <button class="btn btn-secondary btn-sm">Delete</button>
+                            </div>
+                        </div> -->
+                        <!-- ---- -->
+                        <!-- <div class="row item">
+                                <div class="col-sm-6 col-12 item_description">
+                                    description description description
+                                </div>
+                                <div class="col-sm-4 col-6 item_value">
+                                    ###
+                                </div>
+                                <div class="col-sm-1 item_delete_btn">
+                                    <button class="btn btn-secondary btn-sm">Delete</button>
+                                </div>
+                            </div> -->
+                            <!-- listings -->
+                          
+                        </div>
+                      </div>
+                </div>
+    
+    
+                <div class="col-lg-6 col-12">
+                    <div class="card mb-4 shadow-sm">
+                      <div class="card-header month-expense-title-container">
+                        <h2 class="my-0 font-weight-normal" style="display: inline;">Expence:</h2>
+                        <h2 class="month-expense-value"style="display: inline;" ></h2>
+                        <h2 class="month-expense-per-val" style="display: inline;">%</h2>
+                    </div>
+
+                        
+                        <div class="card-body expense__list">
+
+                            <!-- <div class="row item" id="exp-%id%">
+                                <div class="col-sm-6 col-12 item_description">
+                                    %description%
+                                </div>
+                                <div class="col-sm-4 col-6 expense-list-container">
+                                  <div class="item_value">%value%</div>
+                                  <div class="item__percentage"></div>
+                                </div>
+                                <div class="col-sm-1 item_delete_btn">
+                                    <button class="btn btn-secondary btn-sm">Delete</button>
+                                </div>
+                            </div> -->
+                            <!-- <div class="row item">
+                              <div class="col-sm-6 col-12 item_description">
+                                  description description description
+                              </div>
+                              <div class="col-sm-4 col-6 item_value">
+                                  ###
+                              </div>
+                              <div class="col-sm-1 item_delete_btn">
+                                  <button class="btn btn-secondary btn-sm">Delete</button>
+                              </div>
+                          </div> -->
+                          <!-- listings -->
+
+
+                        </div>
+                      </div>
+                </div>
+            
+
+
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+
+  </body>
+</html>
