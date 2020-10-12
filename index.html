@@ -19,9 +19,9 @@
 
 <!-- title -->
     <section class="title">
-        <div class="jumbotron jumbotron-fluid bg-dark">
+        <div id="year-title" class="jumbotron jumbotron-fluid bg-dark">
             <div class="container">
-              <h1 class="display-1 text-muted">My Budget</h1>
+              <h1 id="year-budget-title" class="display-1 text-muted">My Budget</h1>
               <p class="display-4 text-muted">Year of <i class="year-value">year</i></p>
             </div>
           </div>
@@ -34,7 +34,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="card mb-4 shadow-sm ">
                     <div class="card-header">
-                      <h2 class="my-0 font-weight-normal">Income</h2>
+                      <h2 id="year-inc-title" class="my-0 font-weight-normal">Income</h2>
                     </div>
                     <div class="card-body">
                       <h4 class="total-income-value">----</h4>
@@ -46,7 +46,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                      <h2 class="my-0 font-weight-normal">Expense</h2>
+                      <h2 id="year-exp-title" class="my-0 font-weight-normal">Expense</h2>
                     </div>
                     <div class="card-body year-expense-container">
 
@@ -67,7 +67,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                      <h2 class="my-0 font-weight-normal">Budget</h2>
+                      <h2 id="year-budget-title" class="my-0 font-weight-normal">Budget</h2>
                     </div>
                     <div class="card-body">
                       <h4 class="total-budget-value">----</h4>
@@ -108,7 +108,7 @@
       <!-- month page -->
     <section class="month-budget">
 
-        <button id="month-title-box"class="btn btn-primary col-12" type="button"><h1 style="display: inline;">Budget of </h1> <h1 class="selected-month" style="display: inline;">---</h1></button>
+        <button id="month-title-box"class="btn btn-dark col-12" type="button"><h1 style="display: inline;">Budget of </h1> <h1 class="selected-month" style="display: inline;">---</h1></button>
 
         <div class="collapse" id="collapseExample">
             <div class="card card-body">

@@ -395,7 +395,7 @@ var UIctr = (function() {
         monthSelector: '.month-selector',
         monthSubmitButton: '#month-submit',
         
-        monthBudgetPage: '.month-budget', //month page htmls below
+        monthBudgetPage: '.month-budget', 
         seletedMonthTitle: '.selected-month',
         addItem: '.add-item-btn',
         doneBtn: '.done-btn',
@@ -413,7 +413,12 @@ var UIctr = (function() {
         yearBudVal: '.total-budget-value',
         monthBudgetTitle: '#month-budget-title',
         monthIncomeTitle: '#month-inc-title',
-        monthExpenseTitle: '#month-exp-title'
+        monthExpenseTitle: '#month-exp-title',
+        monthTitleBox:'#month-title-box',
+        yearTitle:'#year-title',
+        yearExpenseTitle: '#year-exp-title',
+        yearIncomeTitle: '#year-inc-title',
+        yearBudgetTitle: '#year-budget-title'
 
     }
 
@@ -535,6 +540,13 @@ var UIctr = (function() {
 
         },
         monthTextColorManipulation: function(totPer) {
+
+            document.querySelector(DOMstrings.monthTitleBox).classList.remove('btn-success');
+            document.querySelector(DOMstrings.monthTitleBox).classList.remove('btn-primary');
+            document.querySelector(DOMstrings.monthTitleBox).classList.remove('btn-warning');
+            document.querySelector(DOMstrings.monthTitleBox).classList.remove('btn-danger');
+            document.querySelector(DOMstrings.monthTitleBox).classList.remove('btn-dark');
+
             document.querySelector(DOMstrings.monthBudgetTitle).classList.remove('text-success');
             document.querySelector(DOMstrings.monthBudgetTitle).classList.remove('text-primary');
             document.querySelector(DOMstrings.monthBudgetTitle).classList.remove('text-warning');
@@ -569,6 +581,7 @@ var UIctr = (function() {
 
 
             if (totPer <= 20 && totPer >= 0) {
+                document.querySelector(DOMstrings.monthTitleBox).classList.add('btn-success');
                 document.querySelector(DOMstrings.monthBudgetTitle).classList.add('text-success');
                 document.querySelector(DOMstrings.monthIncomeTitle).classList.add('text-success');
                 document.querySelector(DOMstrings.monthExpenseTitle).classList.add('text-success');
@@ -579,6 +592,7 @@ var UIctr = (function() {
 
 
             } else if (totPer <= 40 && totPer > 20) {
+                document.querySelector(DOMstrings.monthTitleBox).classList.add('btn-primary');
                 document.querySelector(DOMstrings.monthBudgetTitle).classList.add('text-primary');
                 document.querySelector(DOMstrings.monthIncomeTitle).classList.add('text-primary');
                 document.querySelector(DOMstrings.monthExpenseTitle).classList.add('text-primary');
@@ -590,6 +604,7 @@ var UIctr = (function() {
 
 
             } else if (totPer > 40 && totPer <= 50) {
+                document.querySelector(DOMstrings.monthTitleBox).classList.add('btn-warning');
                 document.querySelector(DOMstrings.monthBudgetTitle).classList.add('text-warning');
                 document.querySelector(DOMstrings.monthIncomeTitle).classList.add('text-warning');
                 document.querySelector(DOMstrings.monthExpenseTitle).classList.add('text-warning');
@@ -601,6 +616,8 @@ var UIctr = (function() {
 
 
             } else if (totPer > 50 && totPer <= 100) {
+                document.querySelector(DOMstrings.monthTitleBox).classList.add('btn-danger');
+
                 document.querySelector(DOMstrings.monthBudgetTitle).classList.add('text-danger');
                 document.querySelector(DOMstrings.monthIncomeTitle).classList.add('text-danger');
                 document.querySelector(DOMstrings.monthExpenseTitle).classList.add('text-danger');
@@ -610,6 +627,8 @@ var UIctr = (function() {
                 document.querySelector(DOMstrings.monthExpContainer).classList.add('text-danger');
                 document.querySelector(DOMstrings.monthExpPerContainer).classList.add('text-danger');
 
+            } else {
+                document.querySelector(DOMstrings.monthTitleBox).classList.add('btn-dark');
             }
             /* 
            monthTitles
@@ -621,6 +640,97 @@ var UIctr = (function() {
            text-danger
 
             */
+
+        },
+        yearTextColorManipulation: function(yearTotPer) {
+
+            document.querySelector(DOMstrings.yearTitle).classList.remove('bg-dark');
+            document.querySelector(DOMstrings.yearTitle).classList.remove('bg-primary');
+            document.querySelector(DOMstrings.yearTitle).classList.remove('bg-warning');
+            document.querySelector(DOMstrings.yearTitle).classList.remove('bg-danger');
+            document.querySelector(DOMstrings.yearTitle).classList.remove('bg-dark');
+            document.querySelector(DOMstrings.yearBudgetTitle).classList.remove('text-success');
+            document.querySelector(DOMstrings.yearBudgetTitle).classList.remove('text-primary');
+            document.querySelector(DOMstrings.yearBudgetTitle).classList.remove('text-warning');
+            document.querySelector(DOMstrings.yearBudgetTitle).classList.remove('text-danger');
+            document.querySelector(DOMstrings.yearBudVal).classList.remove('text-success');
+            document.querySelector(DOMstrings.yearBudVal).classList.remove('text-primary');
+            document.querySelector(DOMstrings.yearBudVal).classList.remove('text-warning');
+            document.querySelector(DOMstrings.yearBudVal).classList.remove('text-danger');
+            document.querySelector(DOMstrings.yearIncomeTitle).classList.remove('text-success');
+            document.querySelector(DOMstrings.yearIncomeTitle).classList.remove('text-primary');
+            document.querySelector(DOMstrings.yearIncomeTitle).classList.remove('text-warning');
+            document.querySelector(DOMstrings.yearIncomeTitle).classList.remove('text-danger');
+            document.querySelector(DOMstrings.yearIncVal).classList.remove('text-success');
+            document.querySelector(DOMstrings.yearIncVal).classList.remove('text-primary');
+            document.querySelector(DOMstrings.yearIncVal).classList.remove('text-warning');
+            document.querySelector(DOMstrings.yearIncVal).classList.remove('text-danger');
+            document.querySelector(DOMstrings.yearExpenseTitle).classList.remove('text-success');
+            document.querySelector(DOMstrings.yearExpenseTitle).classList.remove('text-primary');
+            document.querySelector(DOMstrings.yearExpenseTitle).classList.remove('text-warning');
+            document.querySelector(DOMstrings.yearExpenseTitle).classList.remove('text-danger');
+            document.querySelector(DOMstrings.yearExpVal).classList.remove('text-success');
+            document.querySelector(DOMstrings.yearExpVal).classList.remove('text-primary');
+            document.querySelector(DOMstrings.yearExpVal).classList.remove('text-warning');
+            document.querySelector(DOMstrings.yearExpVal).classList.remove('text-danger');
+
+            document.querySelector(DOMstrings.persentageOfYear).classList.remove('text-success');
+            document.querySelector(DOMstrings.persentageOfYear).classList.remove('text-primary');
+            document.querySelector(DOMstrings.persentageOfYear).classList.remove('text-warning');
+            document.querySelector(DOMstrings.persentageOfYear).classList.remove('text-danger');
+
+
+
+            if (yearTotPer <= 20 && yearTotPer >= 0) {
+                document.querySelector(DOMstrings.yearTitle).classList.add('bg-success');
+                document.querySelector(DOMstrings.yearBudgetTitle).classList.add('text-success');
+                document.querySelector(DOMstrings.yearIncomeTitle).classList.add('text-success');
+                document.querySelector(DOMstrings.yearExpenseTitle).classList.add('text-success');
+                document.querySelector(DOMstrings.yearBudVal).classList.add('text-success');
+                document.querySelector(DOMstrings.yearIncVal).classList.add('text-success');
+                document.querySelector(DOMstrings.yearExpVal).classList.add('text-success');
+                document.querySelector(DOMstrings.persentageOfYear).classList.add('text-success');
+
+
+            } else if (yearTotPer <= 40 && yearTotPer > 20) {
+                document.querySelector(DOMstrings.yearTitle).classList.add('bg-primary');
+                document.querySelector(DOMstrings.yearBudgetTitle).classList.add('text-primary');
+                document.querySelector(DOMstrings.yearIncomeTitle).classList.add('text-primary');
+                document.querySelector(DOMstrings.yearExpenseTitle).classList.add('text-primary');
+
+                document.querySelector(DOMstrings.yearBudVal).classList.add('text-primary');
+                document.querySelector(DOMstrings.yearIncVal).classList.add('text-primary');
+                document.querySelector(DOMstrings.yearExpVal).classList.add('text-primary');
+                document.querySelector(DOMstrings.persentageOfYear).classList.add('text-primary');
+
+
+            } else if (yearTotPer > 40 && yearTotPer <= 50) {
+                document.querySelector(DOMstrings.yearTitle).classList.add('bg-warning');
+                document.querySelector(DOMstrings.yearBudgetTitle).classList.add('text-warning');
+                document.querySelector(DOMstrings.yearIncomeTitle).classList.add('text-warning');
+                document.querySelector(DOMstrings.yearExpenseTitle).classList.add('text-warning');
+
+                document.querySelector(DOMstrings.yearBudVal).classList.add('text-warning');
+                document.querySelector(DOMstrings.yearIncVal).classList.add('text-warning');
+                document.querySelector(DOMstrings.yearExpVal).classList.add('text-warning');
+                document.querySelector(DOMstrings.persentageOfYear).classList.add('text-warning');
+
+
+            } else if (yearTotPer > 50 && yearTotPer <= 100) {
+                document.querySelector(DOMstrings.yearTitle).classList.add('bg-danger');
+
+                document.querySelector(DOMstrings.yearBudgetTitle).classList.add('text-danger');
+                document.querySelector(DOMstrings.yearIncomeTitle).classList.add('text-danger');
+                document.querySelector(DOMstrings.yearExpenseTitle).classList.add('text-danger');
+
+                document.querySelector(DOMstrings.yearBudVal).classList.add('text-danger');
+                document.querySelector(DOMstrings.yearIncVal).classList.add('text-danger');
+                document.querySelector(DOMstrings.yearExpVal).classList.add('text-danger');
+                document.querySelector(DOMstrings.persentageOfYear).classList.add('text-danger');
+
+            } else {
+                document.querySelector(DOMstrings.yearTitle).classList.add('bg-dark');
+            }
 
         },
         yearBudgetManipulation: function(totInc, totExp, totBudget) {
@@ -903,6 +1013,9 @@ var contoler = (function(BudgetControl, UIcontrol) {
 
         //update UI percentage 
         UIcontrol.yearPercentageManipulation(yearExpPerVal);
+
+         //change the color of text depending on the value of total expense percentages (totalPercentage)
+         UIcontrol.yearTextColorManipulation(yearExpPerVal);
 
     }
     function handleDone() {
