@@ -37,7 +37,7 @@
                       <h2 class="my-0 font-weight-normal">Income</h2>
                     </div>
                     <div class="card-body">
-                      <h4 class="total-income-value">####</h4>
+                      <h4 class="total-income-value">----</h4>
                     </div>
                   </div>
             </div>
@@ -48,9 +48,17 @@
                     <div class="card-header">
                       <h2 class="my-0 font-weight-normal">Expense</h2>
                     </div>
-                    <div class="card-body">
-                      <h4 class="totalExpense-value" style="display: inline;">####</h4>
-                      <h4 class="year-persentage-value" style="display: inline;">##%</h4>
+                    <div class="card-body year-expense-container">
+
+                      <div class="totalExpense-value-container">
+                        <h4 class="totalExpense-value" style="display: inline;">---</h4>
+                      </div>
+
+                      <div class="year-persentage-value-contanier">
+                        <h4 class="year-persentage-value" style="display: inline;">--%</h4>
+                      </div>
+                      
+                      
                     </div>
                   </div>
             </div>
@@ -62,7 +70,7 @@
                       <h2 class="my-0 font-weight-normal">Budget</h2>
                     </div>
                     <div class="card-body">
-                      <h4 class="total-budget-value">####</h4>
+                      <h4 class="total-budget-value">----</h4>
                     </div>
                   </div>
             </div>
@@ -137,7 +145,7 @@
            
             <div class="card mb-4 shadow-sm">
                 <div class="card-header month-budget-title-container">
-                    <h2 class="my-0 font-weight-normal" style="display: inline;">Budget:</h2>
+                    <h2 id="month-budget-title" class="my-0 font-weight-normal" style="display: inline;">Budget:</h2>
                     <h2 class="month-budget-value"style="display: inline;" ></h2>
                 </div>
             </div>
@@ -146,7 +154,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="card mb-4 shadow-sm">
                       <div class="card-header month-income-title-container">
-                        <h2 class="my-0 font-weight-normal" style="display: inline;">Income:</h2>
+                        <h2 id="month-inc-title" class="my-0 font-weight-normal" style="display: inline;">Income:</h2>
                         <h2 class="month-income-value"style="display: inline;" ></h2>
                     </div>
 
@@ -158,7 +166,7 @@
                             <div class="col-sm-6 col-12 item_description">
                                 %description%
                             </div>
-                            <div class="col-sm-4 col-6 item_value">
+                            <div class="col-sm-3 col-5 item_value">
                                 %value%
                             </div>
                             <div class="col-sm-1 item_delete_btn">
@@ -187,7 +195,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="card mb-4 shadow-sm">
                       <div class="card-header month-expense-title-container">
-                        <h2 class="my-0 font-weight-normal" style="display: inline;">Expence:</h2>
+                        <h2 id="month-exp-title" class="my-0 font-weight-normal" style="display: inline;">Expence:</h2>
                         <h2 class="month-expense-value"style="display: inline;" ></h2>
                         <h2 class="month-expense-per-val" style="display: inline;">%</h2>
                     </div>
@@ -196,10 +204,10 @@
                         <div class="card-body expense__list">
 
                             <!-- <div class="row item" id="exp-%id%">
-                                <div class="col-sm-6 col-12 item_description">
+                                <div class="col-sm-5 col-12 item_description">
                                     %description%
                                 </div>
-                                <div class="col-sm-4 col-6 expense-list-container">
+                                <div class="col-sm-4 col-5 expense-list-container">
                                   <div class="item_value">%value%</div>
                                   <div class="item__percentage"></div>
                                 </div>

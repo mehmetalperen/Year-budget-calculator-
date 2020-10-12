@@ -306,6 +306,7 @@ var BudgetDataCtr = (function () {
                     id: data[currentMonth].budget.allItems.exp[i].id,
                     per: ((data[currentMonth].budget.allItems.exp[i].value) / (data[currentMonth].budget.totalItems.inc) * 100)
                 }
+                data[currentMonth].budget.totalItems.perObj.totPer = totPer;
                 data[currentMonth].budget.totalItems.perObj.persentages.push(perObj);
             }
 
@@ -409,15 +410,16 @@ var UIctr = (function() {
         monthExpPerContainer:'.month-expense-per-val',
         yearIncVal: '.total-income-value',
         yearExpVal: '.totalExpense-value',
-        yearBudVal: '.total-budget-value'
+        yearBudVal: '.total-budget-value',
+        monthBudgetTitle: '#month-budget-title',
+        monthIncomeTitle: '#month-inc-title',
+        monthExpenseTitle: '#month-exp-title'
 
     }
 
-    var incomeHtml = '<div class="row item" id="inc-%id%"><div class="col-sm-6 col-12 item_description">%description%</div><div class="col-sm-4 col-6 item_value">%value%</div><div class="col-sm-1 item_delete_btn"><button class="btn btn-secondary btn-sm">Delete</button></div></div>';
-
-    var expenseHtml = '<div class="row item" id="exp-%id%"><div class="col-sm-6 col-12 item_description">%description%</div><div class="col-sm-4 col-6 expense-list-container"><div class="item_value">%value%</div><div class="item__percentage"></div></div><div class="col-sm-1 item_delete_btn"><button class="btn btn-secondary btn-sm">Delete</button></div></div>';
-
-
+    var incomeHtml ='<div class="row item" id="inc-%id%"><div class="col-sm-6 col-12 item_description">%description%</div><div class="col-sm-3 col-5 item_value">%value%</div><div class="col-sm-1 item_delete_btn"><button class="btn btn-secondary btn-sm">Delete</button></div></div>';
+    
+    var expenseHtml = '<div class="row item" id="exp-%id%"><div class="col-sm-5 col-11 item_description">%description%</div><div class="col-sm-4 col-5 expense-list-container"><div class="item_value">%value%</div><div class="item__percentage"></div></div><div class="col-sm-1 item_delete_btn"><button class="btn btn-secondary btn-sm">Delete</button></div></div>';
 
 
     return {
@@ -530,6 +532,95 @@ var UIctr = (function() {
                     
                 }
             }
+
+        },
+        monthTextColorManipulation: function(totPer) {
+            document.querySelector(DOMstrings.monthBudgetTitle).classList.remove('text-success');
+            document.querySelector(DOMstrings.monthBudgetTitle).classList.remove('text-primary');
+            document.querySelector(DOMstrings.monthBudgetTitle).classList.remove('text-warning');
+            document.querySelector(DOMstrings.monthBudgetTitle).classList.remove('text-danger');
+            document.querySelector(DOMstrings.monthBudgetContainer).classList.remove('text-success');
+            document.querySelector(DOMstrings.monthBudgetContainer).classList.remove('text-primary');
+            document.querySelector(DOMstrings.monthBudgetContainer).classList.remove('text-warning');
+            document.querySelector(DOMstrings.monthBudgetContainer).classList.remove('text-danger');
+
+            document.querySelector(DOMstrings.monthIncomeTitle).classList.remove('text-success');
+            document.querySelector(DOMstrings.monthIncomeTitle).classList.remove('text-primary');
+            document.querySelector(DOMstrings.monthIncomeTitle).classList.remove('text-warning');
+            document.querySelector(DOMstrings.monthIncomeTitle).classList.remove('text-danger');
+            document.querySelector(DOMstrings.monthIncContainer).classList.remove('text-success');
+            document.querySelector(DOMstrings.monthIncContainer).classList.remove('text-primary');
+            document.querySelector(DOMstrings.monthIncContainer).classList.remove('text-warning');
+            document.querySelector(DOMstrings.monthIncContainer).classList.remove('text-danger');
+
+            document.querySelector(DOMstrings.monthExpenseTitle).classList.remove('text-success');
+            document.querySelector(DOMstrings.monthExpenseTitle).classList.remove('text-primary');
+            document.querySelector(DOMstrings.monthExpenseTitle).classList.remove('text-warning');
+            document.querySelector(DOMstrings.monthExpenseTitle).classList.remove('text-danger');
+            document.querySelector(DOMstrings.monthExpContainer).classList.remove('text-success');
+            document.querySelector(DOMstrings.monthExpContainer).classList.remove('text-primary');
+            document.querySelector(DOMstrings.monthExpContainer).classList.remove('text-warning');
+            document.querySelector(DOMstrings.monthExpContainer).classList.remove('text-danger');
+            document.querySelector(DOMstrings.monthExpPerContainer).classList.remove('text-success');
+            document.querySelector(DOMstrings.monthExpPerContainer).classList.remove('text-primary');
+            document.querySelector(DOMstrings.monthExpPerContainer).classList.remove('text-warning');
+            document.querySelector(DOMstrings.monthExpPerContainer).classList.remove('text-danger');
+
+
+
+            if (totPer <= 20 && totPer >= 0) {
+                document.querySelector(DOMstrings.monthBudgetTitle).classList.add('text-success');
+                document.querySelector(DOMstrings.monthIncomeTitle).classList.add('text-success');
+                document.querySelector(DOMstrings.monthExpenseTitle).classList.add('text-success');
+                document.querySelector(DOMstrings.monthBudgetContainer).classList.add('text-success');
+                document.querySelector(DOMstrings.monthIncContainer).classList.add('text-success');
+                document.querySelector(DOMstrings.monthExpContainer).classList.add('text-success');
+                document.querySelector(DOMstrings.monthExpPerContainer).classList.add('text-success');
+
+
+            } else if (totPer <= 40 && totPer > 20) {
+                document.querySelector(DOMstrings.monthBudgetTitle).classList.add('text-primary');
+                document.querySelector(DOMstrings.monthIncomeTitle).classList.add('text-primary');
+                document.querySelector(DOMstrings.monthExpenseTitle).classList.add('text-primary');
+
+                document.querySelector(DOMstrings.monthBudgetContainer).classList.add('text-primary');
+                document.querySelector(DOMstrings.monthIncContainer).classList.add('text-primary');
+                document.querySelector(DOMstrings.monthExpContainer).classList.add('text-primary');
+                document.querySelector(DOMstrings.monthExpPerContainer).classList.add('text-primary');
+
+
+            } else if (totPer > 40 && totPer <= 50) {
+                document.querySelector(DOMstrings.monthBudgetTitle).classList.add('text-warning');
+                document.querySelector(DOMstrings.monthIncomeTitle).classList.add('text-warning');
+                document.querySelector(DOMstrings.monthExpenseTitle).classList.add('text-warning');
+
+                document.querySelector(DOMstrings.monthBudgetContainer).classList.add('text-warning');
+                document.querySelector(DOMstrings.monthIncContainer).classList.add('text-warning');
+                document.querySelector(DOMstrings.monthExpContainer).classList.add('text-warning');
+                document.querySelector(DOMstrings.monthExpPerContainer).classList.add('text-warning');
+
+
+            } else if (totPer > 50 && totPer <= 100) {
+                document.querySelector(DOMstrings.monthBudgetTitle).classList.add('text-danger');
+                document.querySelector(DOMstrings.monthIncomeTitle).classList.add('text-danger');
+                document.querySelector(DOMstrings.monthExpenseTitle).classList.add('text-danger');
+
+                document.querySelector(DOMstrings.monthBudgetContainer).classList.add('text-danger');
+                document.querySelector(DOMstrings.monthIncContainer).classList.add('text-danger');
+                document.querySelector(DOMstrings.monthExpContainer).classList.add('text-danger');
+                document.querySelector(DOMstrings.monthExpPerContainer).classList.add('text-danger');
+
+            }
+            /* 
+           monthTitles
+
+           remove:
+           text-success
+           text-primary
+           text-warning
+           text-danger
+
+            */
 
         },
         yearBudgetManipulation: function(totInc, totExp, totBudget) {
@@ -790,6 +881,9 @@ var contoler = (function(BudgetControl, UIcontrol) {
         //update UI percentage
         UIcontrol.monthPercentageManipulation(totalPercentage, percentages);
 
+        //change the color of text depending on the value of total expense percentages (totalPercentage)
+        UIcontrol.monthTextColorManipulation(totalPercentage);
+
     }
 
     function yearBudgetUpdate() {
@@ -812,6 +906,12 @@ var contoler = (function(BudgetControl, UIcontrol) {
 
     }
     function handleDone() {
+
+        //If the expense percentage is higher than 50%, alert a warning messege
+        var financialStability = BudgetControl.getData();
+        if (financialStability[month].budget.totalItems.perObj.totPer >= 50 || financialStability.per >= 50) {
+            alert("Your expense persentage is above national avarage. For finacial planing, go to www.IhaveShoppingAddiction.com ");
+        }
 
         //delete all the item lists from UI (NOT FROM BudgetControl)
         UIcontrol.deleteAllItemList();

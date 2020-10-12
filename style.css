@@ -39,13 +39,21 @@ section {
 .month-budget-title-container h2{
     padding-right: 5%;
 }
+.month-income-title-container {
+    text-align: left;
+}
 .month-income-title-container h2{
     text-align: left;
     padding-right: 25%;
+    padding-left: 0;
 }
-
+.month-expense-title-container {
+    text-align: left;
+    justify-content: space-between;
+}
 .month-expense-title-container h2{
     text-align: left;
+    padding-left: 0;
     padding-right: 10%;
 }
 
@@ -61,3 +69,57 @@ section {
 .display-1 {
     padding-bottom: 20px;
 }
+
+.year-expense-container {
+    text-align: center;
+
+}
+.totalExpense-value-container {
+    position: relative;
+    display: inline;
+    padding-right: 20%;
+    padding-left: 0;
+
+}
+.year-persentage-value-contanier{
+    position: relative;
+    display: inline;
+    padding-left: 20%;
+    padding-right: 0;
+}
+
+  @media screen and (max-width: 992px) {
+
+    .expense-list-container{
+        padding: 0;
+        margin: 0;
+    }
+    .item_value {
+        padding: 0;
+        margin: 0;
+    }
+    .item__percentage {
+        padding: 0;
+        padding-left: 5px;
+        margin: 0;
+    }
+  }
+
+@media screen and (max-width: 1207px) {
+
+    .totalExpense-value-container {
+        position: relative;
+        display: inline;
+        padding-right: 20%;
+        padding-left: 0;
+    
+    }
+
+    .year-persentage-value-contanier{
+        position: relative;
+        display: inline;
+        padding-left: 10%;
+        padding-right: 0;
+    }
+    
+  }
