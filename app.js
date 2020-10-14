@@ -644,7 +644,7 @@ var UIctr = (function() {
         },
         yearTextColorManipulation: function(yearTotPer) {
 
-            document.querySelector(DOMstrings.yearTitle).classList.remove('bg-dark');
+            document.querySelector(DOMstrings.yearTitle).classList.remove('bg-success');
             document.querySelector(DOMstrings.yearTitle).classList.remove('bg-primary');
             document.querySelector(DOMstrings.yearTitle).classList.remove('bg-warning');
             document.querySelector(DOMstrings.yearTitle).classList.remove('bg-danger');

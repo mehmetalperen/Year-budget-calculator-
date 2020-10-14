@@ -123,3 +123,32 @@ section {
     }
     
   }
+
+  @media screen and (max-width: 600px) {
+      
+    section {
+        padding: 0;
+        margin: 0;
+    }
+    #collapseExample {
+        padding: 0;
+        margin: 0;
+    }
+
+    .totalExpense-value-container {
+        position: relative;
+        display: inline;
+        padding-right: 20%;
+        padding-left: 0;
+    
+    }
+
+    .year-persentage-value-contanier{
+        position: relative;
+        display: inline;
+        padding-left: 10%;
+        padding-right: 0;
+    }
+    
+  }
+
